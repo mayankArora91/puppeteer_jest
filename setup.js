@@ -12,8 +12,6 @@ module.exports = async function () {
   // this global is only available in the teardown but not in TestEnvironments
   global.__BROWSER_GLOBAL__ = browser;
   
-/*   var [page] = await browser.pages();
-  await page.goto(envProperty.url); */
   // use the file system to expose the wsEndpoint for TestEnvironments
   await mkdir(DIR, {recursive: true});
   await writeFile(path.join(DIR, 'wsEndpoint'), browser.wsEndpoint());

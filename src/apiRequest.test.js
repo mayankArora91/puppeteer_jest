@@ -7,7 +7,6 @@ const reports = path.join('.', 'reports');
 
 describe('Get API Response', () => {
     let page;
-    //page= global.__BROWSER__.page;
       beforeAll(async () => {
 
         // get existing tab/page (first item in the array)
