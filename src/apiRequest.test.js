@@ -1,10 +1,12 @@
 const puppeteer = require('puppeteer');
 const timeout = 150000;
-var envProperty = require('../testdata/envProp.json');
 const fs = require('fs');
 const path = require('path');
 const reports = path.join('.', 'reports');
 
+//Test Data
+var envProperty = require('../testdata/envProp.json');
+var apiResponse = require('../testdata/apiResponseTestData.json');
 describe('Get API Response', () => {
     let page;
       beforeAll(async () => {
@@ -18,6 +20,6 @@ describe('Get API Response', () => {
         const request = await page.waitForResponse(response => response.url().includes('b/ss'));
         var info = JSON.stringify(await request.headers());
         await fs.writeFileSync(path.join(reports, 'jsonReport.txt'), info);
-
+        expect(request._headers['content-type']).toBe(apiResponse.content_type);
     }, timeout);
 });
