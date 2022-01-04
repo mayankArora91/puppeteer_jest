@@ -1,5 +1,9 @@
 
 {
+  "name": "poc",
+  "version": "1.0.0",
+  "description": "PoC to get the API information using puppeteer",
+  "type": "commonjs",
   "scripts": {
      "test": "jest" 
     },
